@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,
          Route,
-         Switch,
-         Redirect } from 'react-router-dom';
+         Switch
+       } from 'react-router-dom';
 
 import Users from '../pages/user/Users';
+import Profile from '../pages/user/Profile';
 import NotFound from '../pages/notFound/NotFound';
 
 class Routers extends Component {
@@ -14,7 +15,7 @@ class Routers extends Component {
       <Router>
         <Switch>
           <Route exact path='/' component={Users} />
-          <Route exact path='/user' render={() => <Redirect to={'/'} />} />
+          <Route exact path='/user/:nickname' component={Profile} />
           <Route component={NotFound} />
         </Switch>
       </Router>
